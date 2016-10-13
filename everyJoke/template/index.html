@@ -1,0 +1,45 @@
+<div id='fixed' ng-controller='indexCtrl' ng-scroll='loadMore()' >
+<div class="weui-panel weui-panel_access" >
+    <div class="weui-panel__hd">文字组合列表</div>
+    <div class="weui-panel__bd">
+        <div class="weui-media-box weui-media-box_text" ng-repeat='data in datas' ng-click='click($index)'>
+            <h4 class="weui-media-box__title">第{{$index+1}}个笑话</h4>
+            <p class="weui-media-box__desc">{{datas[$index].content}}</p>
+        </div>
+
+    </div>
+    <div class="weui-panel__ft">
+        <a href="javascript:void(0);" class="weui-cell weui-cell_access weui-cell_link">
+            <div class="weui-cell__bd" ng-click="loadMore()">查看更多</div>
+            <span class="weui-cell__ft"></span>
+        </a>    
+    </div>
+    <div ng-show='loadmore' class="load">
+        <!-- 菊花加载 -->
+        <div class="weui-loadmore">
+            <i class="weui-loading"></i>
+            <span class="weui-loadmore__tips">正在加载</span>
+        </div>
+        <div class="weui-loadmore weui-loadmore_line">
+            <span class="weui-loadmore__tips">暂无数据</span>
+        </div>
+        <div class="weui-loadmore weui-loadmore_line weui-loadmore_dot">
+            <span class="weui-loadmore__tips"></span>
+        </div>
+    </div>
+</div>
+</div>
+<style> 
+    .load{
+        width: 100%;
+        height: 100%;
+        background: #000;
+        opacity: 0.5;
+    }
+    #fixed{
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+        position: fixed;
+    }
+</style>
